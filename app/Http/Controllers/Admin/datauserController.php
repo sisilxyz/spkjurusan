@@ -79,6 +79,9 @@ class datauserController extends Controller
     public function edit($id)
     {
         //
+        $pagename = "Edit Data User";
+        $datausr = datauser::find($id);
+        return view('admins.datauser.edit', compact('datausr', 'pagename'));
     }
 
     /**
@@ -91,7 +94,22 @@ class datauserController extends Controller
     public function update(Request $request, $id)
     {
         //
-    }
+        $request->validate([
+            'txtnisn'=>'required',
+            'txtnama'=>'required'
+    ]);
+
+  // dd($data_user);
+
+    $datausr = datauser::find($id);
+
+            $datausr->nisn = $request->get('txtnisn');
+            $datausr->nama= $request->get('txtnama');
+
+    $datausr->save();
+    return redirect('/datauser')->with('sukses', 'Data diupdate');
+
+}
 
     /**
      * Remove the specified resource from storage.
@@ -102,5 +120,8 @@ class datauserController extends Controller
     public function destroy($id)
     {
         //
+        $datausr = datauser::find($id);
+        $datausr->delete();
+        return redirect('/datauser')->with('sukses', 'Data dihapus');
     }
 }

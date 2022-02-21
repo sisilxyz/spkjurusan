@@ -50,6 +50,9 @@
                             <th>No.</th>
                             <th>NISN</th>
                             <th>Nama</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -58,6 +61,12 @@
                             <td>{{++$i}}</td>
                             <td>{{$row->nisn}}</td>
                             <td>{{$row->nama}}</td>
+                            <td><a href= "{{route('datauser.edit',$row->id)}}" class = 'btn btn-success'>Edit </a>
+                            <td> <form action= "{{route('datauser.destroy',$row->id)}}" method='post' >
+                                    @csrf
+                                    @method('DELETE')
+                                <button class = "btn btn-danger" type="submit"> Delete </button>                            
+                            </form></td>
                         </tr>
                     @endforeach
                     </tbody>

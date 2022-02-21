@@ -24,13 +24,14 @@
                 </div>
                     <div class="card-body">
                         <div class="card-body card-block">
-                            <form action="{{route('datauser.store')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            <form action="{{route('datauser.update',$datausr->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        @method('PATCH')
                         @csrf
                                 <div class="row form-group">
                                     <div class="col-lg-10">
                                         <div class="form-group">
                                          <label for="text-input" class=" form-control-label">NISN</label>
-                                            <input type="text" id="text-input" name="txtnisn" placeholder="Text" class="form-control"><small class="form-text text-muted">Isi NISN Siswa</small>
+                                            <input type="text" id="text-input" name="txtnisn" value="{{$datausr->nisn}}"  placeholder="Text" class="form-control"><small class="form-text text-muted">Isi NISN Siswa</small>
                                         </div>
                                     </div>
                                 </div>
@@ -39,7 +40,7 @@
                                     <div class="col-lg-10">
                                         <div class="form-group">
                                           <label for="text-input" class=" form-control-label">Nama Siswa</label>
-                                          <input type="text" id="text-input" name="txtnama" placeholder="Text" class="form-control"><small class="form-text text-muted">Isi Nama Siswa</small>
+                                          <input type="text" id="text-input" name="txtnama"value="{{$datausr->nama}}" placeholder="Text" class="form-control"><small class="form-text text-muted">Isi Nama Siswa</small>
                                         </div>
                                     </div>
                                 </div>
