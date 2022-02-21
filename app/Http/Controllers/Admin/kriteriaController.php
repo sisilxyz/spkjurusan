@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\jurusan;
+use App\kriteria;
 
-class jurusanController extends Controller
+class kriteriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class jurusanController extends Controller
     public function index()
     {
         //
-            $pagename = "Jurusan";
-            $data = jurusan::all();
-            return view('admins.jurusan.index', compact('data', 'pagename'));
+        $pagename = "Kriteria";
+        $data = kriteria::all();
+        return view('admins.kriteria.index', compact('data', 'pagename'));
     }
 
     /**
@@ -29,8 +29,8 @@ class jurusanController extends Controller
     public function create()
     {
         //
-        $pagename = "Tambah Data Jurusan";
-        return view('admins.jurusan.create', compact('pagename'));
+        $pagename = "Tambah Data Kriteria";
+        return view('admins.kriteria.create', compact('pagename'));
     }
 
     /**
@@ -43,19 +43,22 @@ class jurusanController extends Controller
     {
         //
         $request->validate([
-            'txtkode_jurusan'=>'required',
-            'txtnama_jurusan'=>'required',
+            'txtkode_kriteria'=>'required',
+            'txtnama_kriteria'=>'required',
+            'txtketerangan'=>'required'
+            
         ]);
 
-        $datajurusan=new jurusan([
-            'kode_jurusan'=>$request->get('txtkode_jurusan'),
-            'nama_jurusan'=> $request->get('txtnama_jurusan'),
+        $datakriteria=new kriteria([
+            'kode_kriteria'=>$request->get('txtkode_kriteria'),
+            'nama_kriteria'=> $request->get('txtnama_kriteria'),
+            'keterangan'=> $request->get('txtketerangan')
         ]);
 
-        // dd($datajurusan);
+        // dd($datakriteria);
 
-        $datajurusan->save();
-        return redirect('/jurusan')->with('sukses', 'Data disimpan');
+        $datakriteria->save();
+        return redirect('/kriteria')->with('sukses', 'Data disimpan');
     }
 
     /**
@@ -78,9 +81,9 @@ class jurusanController extends Controller
     public function edit($id)
     {
         //
-        $pagename = "Edit Data Jurusan";
-        $data = jurusan::find($id);
-        return view('admins.jurusan.edit', compact('data', 'pagename'));
+        $pagename = "Edit Data Kriteria";
+        $data = kriteria::find($id);
+        return view('admins.kriteria.edit', compact('data', 'pagename'));
     }
 
     /**
@@ -94,21 +97,22 @@ class jurusanController extends Controller
     {
         //
         $request->validate([
-            'txtkode_jurusan'=>'required',
-            'txtnama_jurusan'=>'required'
-    ]);
+            'txtkode_kriteria'=>'required',
+            'txtnama_kriteria'=>'required',
+            'txtketerangan'=>'required' 
+        ]);
 
-  // dd($datajurusan);
+        $data = kriteria::find($id);
+            $data->kode_kriteria= $request->get('txtkode_kriteria');
+            $data->nama_kriteria= $request->get('txtnama_kriteria');
+            $data->keterangan= $request->get('txtketerangan');
 
-    $data = jurusan::find($id);
 
-            $data->kode_jurusan = $request->get('txtkode_jurusan');
-            $data->nama_jurusan= $request->get('txtnama_jurusan');
+        // dd($data);
 
-    $data->save();
-    return redirect('/jurusan')->with('sukses', 'Data diupdate');
-
-}
+        $data->save();
+        return redirect('/kriteria')->with('sukses', 'Data disimpan');
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -119,8 +123,8 @@ class jurusanController extends Controller
     public function destroy($id)
     {
         //
-        $data = jurusan::find($id);
+        $data = kriteria::find($id);
         $data->delete();
-        return redirect('/jurusan')->with('sukses', 'Data dihapus');
+        return redirect('/kriteria')->with('sukses', 'Data dihapus');
     }
 }

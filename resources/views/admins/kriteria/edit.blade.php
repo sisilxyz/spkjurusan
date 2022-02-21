@@ -24,14 +24,14 @@
                 </div>
                     <div class="card-body">
                         <div class="card-body card-block">
-                            <form action="{{route('jurusan.update',$data->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            <form action="{{route('kriteria.update',$data->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                         @method('PATCH')
                         @csrf
                                 <div class="row form-group">
                                     <div class="col-lg-10">
                                         <div class="form-group">
-                                         <label for="text-input" class=" form-control-label">NISN</label>
-                                            <input type="text" id="text-input" name="txtkode_jurusan" value="{{$data->kode_jurusan}}"  placeholder="Text" class="form-control"><small class="form-text text-muted">Isi NISN Siswa</small>
+                                         <label for="text-input" class=" form-control-label">Kode Kriteria</label>
+                                            <input type="text" id="text-input" name="txtkode_kriteria" value="{{$data->kode_kriteria}}"  placeholder="Text" class="form-control"><small class="form-text text-muted">Isi kode Kriteria</small>
                                         </div>
                                     </div>
                                 </div>
@@ -39,11 +39,23 @@
                                 <div class="row form-group">
                                     <div class="col-lg-10">
                                         <div class="form-group">
-                                          <label for="text-input" class=" form-control-label">Nama Siswa</label>
-                                          <input type="text" id="text-input" name="txtnama_jurusan" value="{{$data->nama_jurusan}}" placeholder="Text" class="form-control"><small class="form-text text-muted">Isi Nama Siswa</small>
+                                          <label for="text-input" class=" form-control-label">Nama Kriteria</label>
+                                          <input type="text" id="text-input" name="txtnama_kriteria"value="{{$data->nama_kriteria}}" placeholder="Text" class="form-control"><small class="form-text text-muted">Isi Nama krieria</small>
                                         </div>
                                     </div>
                                 </div>
+
+                                    <div class="row form-group">
+                                        <div class="col-lg-10">
+                                             <label for="select" class=" form-control-label">Select</label></div>
+                                                    <div class="col-12 col-md-9">
+                                                        <select name="txtketerangan" value="{{$data->keterangan}}" id="select" class="form-control">
+                                                            <option>Benefit</option>
+                                                            <option>Cost</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
                                         <!-- Button -->
                                         <div class="pl-lg-4">
                                             <div class="row">

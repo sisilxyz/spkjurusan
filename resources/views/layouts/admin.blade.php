@@ -49,20 +49,20 @@
             <!-- Nav Item - DataUser -->
             <li class="nav-item {{ Nav::isRoute('datauser') }}">
             <a class="nav-link" href="{{ url('/datauser') }}">
-                <i class="fas fa-fw fa-file"></i>
+                <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Data User') }}</span></a>
         </li>
 
             <!-- Nav Item - DataUser -->
             <li class="nav-item {{ Nav::isRoute('jurusan') }}">
             <a class="nav-link" href="{{ url('/jurusan') }}">
-                <i class="fas fa-fw fa-file"></i>
+                <i class="fas fa-fw fa-folder"></i>
                 <span>{{ __('Jurusan') }}</span></a>
         </li>
 
         <li class="nav-item {{ Nav::isRoute('kriteria') }}">
             <a class="nav-link" href="{{ url('/kriteria') }}">
-                <i class="fas fa-fw fa-file"></i>
+                <i class="fas fa-fw fa-folder"></i>
                 <span>{{ __('Kriteria') }}</span></a>
         </li>
 
