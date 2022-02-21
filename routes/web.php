@@ -24,6 +24,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::put('/profile', 'ProfileController@update')->name('profile.update');
 Route::resource('/datauser', 'Admin\datauserController');
+Route::resource('/jurusan', 'Admin\jurusanController');
+Route::resource('/kriteria', 'Admin\kriteriaController');
+Route::resource('/kriteria_jurusan', 'Admin\kriteria_jurusanController');
+Route::resource('/bobot', 'Admin\bobotController');
 
 Route::get('/about', function () {
     return view('about');

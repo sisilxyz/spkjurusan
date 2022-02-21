@@ -53,14 +53,38 @@
                 <span>{{ __('Data User') }}</span></a>
         </li>
 
+            <!-- Nav Item - DataUser -->
+            <li class="nav-item {{ Nav::isRoute('jurusan') }}">
+            <a class="nav-link" href="{{ url('/jurusan') }}">
+                <i class="fas fa-fw fa-file"></i>
+                <span>{{ __('Jurusan') }}</span></a>
+        </li>
+
+        <li class="nav-item {{ Nav::isRoute('kriteria') }}">
+            <a class="nav-link" href="{{ url('/kriteria') }}">
+                <i class="fas fa-fw fa-file"></i>
+                <span>{{ __('Kriteria') }}</span></a>
+        </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider">
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            {{ __('Settings') }}
+            {{ __('Alat Penilaian') }}
         </div>
+
+        <li class="nav-item {{ Nav::isRoute('bobot') }}">
+            <a class="nav-link" href="{{ url('/bobot') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>{{ __('Bobot') }}</span></a>
+        </li>
+
+        <li class="nav-item {{ Nav::isRoute('kriteria_jurusan') }}">
+            <a class="nav-link" href="{{ url('/Krteria_jurusan') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>{{ __('Kriteria Jurusan') }}</span></a>
+        </li>
 
         <!-- Nav Item - Profile -->
         <li class="nav-item {{ Nav::isRoute('profile') }}">
