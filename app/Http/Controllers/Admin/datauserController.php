@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\datauser;
+use App\Imports\datauserImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class datauserController extends Controller
 {
@@ -19,6 +21,31 @@ class datauserController extends Controller
         $pagename = "Data User";
         $datausr = datauser::all();
         return view('admins.datauser.index', compact('datausr', 'pagename'));
+    }
+
+    public function datauserimport(Request $request){
+        $request->validate([
+            'file' => 'required|max:10000|mimes:xlsx,xls',
+        ]);
+
+        $file = $request->file('file');
+        $namaFile = $file->getClientOriginalName();
+        $file->move('DataUser, $namaFile');
+
+        $import = Excel::import(new datauserimport, public_path('/DataUser', $namaFile));
+        return redirect('admins.datauser.index');
+        
+        // Storage::delete($path);
+        
+        // if($import) {
+        //     return redirect('admins.datauser.index');
+        //     //redirect
+        //     // return redirect()->route('users.index')->with(['success' => 'Data Berhasil Diimport!']);
+        // } else {
+        //     //redirect
+        //     return redirect('admins.datauser.index');
+        //     // return redirect()->route('users.index')->with(['error' => 'Data Gagal Diimport!']);
+        // }
     }
 
     /**
@@ -124,4 +151,6 @@ class datauserController extends Controller
         $datausr->delete();
         return redirect('/datauser')->with('sukses', 'Data dihapus');
     }
+
 }
+
