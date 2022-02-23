@@ -2,7 +2,7 @@
 
 @section('main-content')
 
-<title>Data User</title>
+<title>{{$pagename}}</title>
 
 <div class="row">
     <div class="container-fluid">
