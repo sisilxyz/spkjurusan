@@ -8,8 +8,6 @@
     <div class="container-fluid">
         
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">{{$pagename}}</h1>
-
 @if (session('sukses'))
         <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
             {{ session('sukses') }}
@@ -47,11 +45,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($data as $i=>$row)
+                    @foreach($krijur as $i => $row) 
                     <tr>
                             <td>{{++$i}}</td>
-                            <td>{{$row->id_jurusan}}</td>
-                            <td>{{$row->id_kriteria}}</td>
+                            <td>{{$row->namaJurusan->nama_jurusan}}</td>
+                            <td>{{$row->namaKriteria->nama_kriteria}}</td>
                             <td><a href= "{{route('kriteria_jurusan.edit',$row->id)}}" class = 'btn btn-success'>Edit </a>
                             <td> <form action= "{{route('kriteria_jurusan.destroy',$row->id)}}" method='post' >
                                     @csrf

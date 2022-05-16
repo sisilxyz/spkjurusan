@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\kriteria_jurusan;
-use App\jurusan;
-use App\kriteria;
+use App\Jurusan;
+use App\Kriteria;
+use App\KriteriaJurusan;
 
 class kriteria_jurusanController extends Controller
 {
@@ -19,8 +19,8 @@ class kriteria_jurusanController extends Controller
     {
         //
         $pagename = "Kriteria Jurusan";
-        $data = kriteria_jurusan::all();
-        return view('admins.kriteria_jurusan.index', compact('data', 'pagename'));
+        $krijur = KriteriaJurusan::all();
+        return view('admins.kriteria_jurusan.index', compact('krijur', 'pagename'));
     }
 
     /**
@@ -31,8 +31,8 @@ class kriteria_jurusanController extends Controller
     public function create()
     {
         //
-        $data_jurusan=jurusan::all();
-        $data_kriteria=kriteria::all();
+        $data_jurusan=Jurusan::all();
+        $data_kriteria=Kriteria::all();
         $pagename='Tambah Kriteria Jurusan';
         return view('admins.kriteria_jurusan.create',compact('pagename','data_jurusan','data_kriteria'));
     }
@@ -47,13 +47,13 @@ class kriteria_jurusanController extends Controller
     {
         //
         $request->validate([
-            'optionid_jurusan'=>'required',
-            'optionid_kriteria'=>'required'
+            'id_jurusan'=>'required',
+            'id_kriteria'=>'required'
         ]);
 
-        $datakrijur=new kriteria_jurusan([
-            'id_jurusan'=> $request->get('optionid_jurusan'),
-            'id_kriteria'=> $request->get('optionid_kriteria')
+        $datakrijur=new KriteriaJurusan([
+            'id_jurusan'=> $request->get('id_jurusan'),
+            'id_kriteria'=> $request->get('id_kriteria')
         ]);
 
         // dd($datakrijur);
@@ -83,10 +83,10 @@ class kriteria_jurusanController extends Controller
     public function edit($id)
     {
         //
-        $data_jurusan=jurusan::all();
-        $data_kriteria=kriteria::all();
+        $data_jurusan=Jurusan::all();
+        $data_kriteria=Kriteria::all();
         $pagename='Edit Kriteria Jurusan';
-        $data=kriteria_jurusan::find($id);
+        $data=KriteriaJurusan::find($id);
         return view('admins.kriteria_jurusan.edit',compact('data', 'pagename','data_jurusan','data_kriteria'));
     }
 
@@ -105,9 +105,9 @@ class kriteria_jurusanController extends Controller
             'optionid_kriteria'=>'required'
         ]);
 
-        $data = kriteria_jurusan::find($id);
-            $data->id_jurusan= $request->get('optionid_jurusan');
-            $data->id_kriteria= $request->get('optionid_kriteria');
+        $data = KriteriaJurusan::find($id);
+            $data->id_jurusan= $request->get('id_jurusan');
+            $data->id_kriteria= $request->get('id_kriteria');
 
         // dd($data);
 
@@ -124,7 +124,7 @@ class kriteria_jurusanController extends Controller
     public function destroy($id)
     {
         //
-        $data = kriteria_jurusan::find($id);
+        $data = KriteriaJurusan::find($id);
         $data->delete();
         return redirect('/kriteria_jurusan')->with('sukses', 'Data dihapus');
     }

@@ -8,7 +8,6 @@
     <div class="container-fluid">
         
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">{{$pagename}}</h1>
 
 @if (session('sukses'))
         <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
@@ -53,7 +52,7 @@
                     <tr>
                             <td>{{++$i}}</td>
                             <td>{{$row->kode_bobot}}</td>
-                            <td>{{$row->id_kriteria}}</td>
+                            <td>{{$row->namaKriteria->nama_kriteria}}</td>
                             <td>{{$row->nilai_bobot}}</td>
                             <td>{{$row->nilai_normalisasi}}</td>
                             <td><a href= "{{route('bobot.edit',$row->id)}}" class = 'btn btn-success'>Edit </a>

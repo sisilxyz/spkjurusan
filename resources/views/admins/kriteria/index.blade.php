@@ -8,8 +8,6 @@
     <div class="container-fluid">
         
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">{{$pagename}}</h1>
-
 @if (session('sukses'))
         <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
             {{ session('sukses') }}

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,12 +24,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::put('/profile', 'ProfileController@update')->name('profile.update');
+
 Route::resource('/datauser', 'Admin\datauserController');
+Route::post('/datauser/importdatauser', 'Admin\datauserController@import')->name('importdatauser');
+
 Route::resource('/jurusan', 'Admin\jurusanController');
 Route::resource('/kriteria', 'Admin\kriteriaController');
+Route::resource('/pertanyaan', 'Admin\pertanyaanController');
 Route::resource('/bobot', 'Admin\bobotController');
 Route::resource('/kriteria_jurusan', 'Admin\kriteria_jurusanController');
-Route::post('/importuser', 'Admin\datauserController@datauserimport')->name('importdatauser');
+Route::resource('/userspk', 'nilaiuserController');
 
 Route::get('/about', function () {
     return view('about');

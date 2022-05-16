@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\datauser;
 use App\Imports\datauserImport;
+use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Facades\Excel;
 
 class datauserController extends Controller
@@ -18,22 +19,26 @@ class datauserController extends Controller
     public function index()
     {
         //
-        $pagename = "Data User";
+        $pagename = "Data Siswa Rekomendasi";
         $datausr = datauser::all();
         return view('admins.datauser.index', compact('datausr', 'pagename'));
     }
 
-    public function datauserimport(Request $request){
+    public function import(Request $request){
+         $this->validate($request, [
+            'file' => 'required|mimes:csv,xls,xlsx'
+        ]);
+ 
         $request->validate([
             'file' => 'required|max:10000|mimes:xlsx,xls',
         ]);
-
-        $file = $request->file('file');
-        $namaFile = $file->getClientOriginalName();
-        $file->move('DataUser, $namaFile');
-
-        $import = Excel::import(new datauserimport, public_path('/DataUser', $namaFile));
-        return redirect('admins.datauser.index');
+    
+        $path = $request->file('file');
+    
+            Excel::import(new datauserImport, $path);        
+        
+         Session::flash('success', 'Leave Records Imported Successfully');
+          return redirect()->route('users.index');
         
         // Storage::delete($path);
         
