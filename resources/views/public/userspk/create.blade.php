@@ -38,20 +38,6 @@
                                          </div>
                                     </div>
 
-                                    {{-- <div class="row form-group">
-                                        <div class="col-lg-10">
-                                                <label for="select" class=" form-control-label">Nama</label></div>
-                                                    <div class="col-12 col-md-9">
-                                                    <select name="id_datauser" id="select" class="form-control">
-                                                    @foreach($datauser as $datauser)
-                                                    <option value={{$datauser->id}}>
-                                                        {{$datauser->nama}}
-                                                    </option>
-                                                    @endforeach                                            
-                                                    </select>
-                                                 </div>
-                                            </div> --}}
-
                             <div class="row form-group">
                                  <div class="col-lg-10">
                                     <label for="select" class=" form-control-label">Nama Kriteria</label></div>

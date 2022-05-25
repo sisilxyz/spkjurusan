@@ -19,7 +19,7 @@ class nilaiuserController extends Controller
         //
         $pagename = "Input Nilai Siswa";
         $data = NilaiUser::all();
-        return view('public.userspk.index', compact('data', 'pagename'));
+        return view('admins.auserspk.index', compact('data', 'pagename'));
     }
 
     /**
@@ -59,7 +59,7 @@ class nilaiuserController extends Controller
         // dd($datakrijur);
 
         $nilaisiswa->save();
-        return redirect('/userspk')->with('sukses', 'Data disimpan');
+        return redirect('/userspk/create')->with('sukses', 'Data disimpan');
     }
     /**
      * Display the specified resource.

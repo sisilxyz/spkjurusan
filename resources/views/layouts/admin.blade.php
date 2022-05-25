@@ -55,6 +55,13 @@
         </li>
 
             <!-- Nav Item - DataUser -->
+            <li class="nav-item {{ Nav::isRoute('userspk') }}">
+                <a class="nav-link" href="{{ url('/userspk') }}">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>{{ __('Data Siswa') }}</span></a>
+            </li>
+
+            <!-- Nav Item - DataUser -->
             <li class="nav-item {{ Nav::isRoute('jurusan') }}">
             <a class="nav-link" href="{{ url('/jurusan') }}">
                 <i class="fas fa-fw fa-folder"></i>
