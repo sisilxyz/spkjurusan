@@ -15,12 +15,15 @@ class CreateNilaiUsersTable extends Migration
     {
         Schema::create('nilai_users', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_datauser');
-            $table->string('nilaisiswa');
-            $table->unsignedBigInteger('id_kriteria');
+            $table->string('nama');
+            $table->integer('nisn');
+            $table->integer('matematika');
+            $table->integer('ipa');
+            $table->integer('ips');
+            $table->integer('bing');
+            $table->integer('bindo');
+            $table->integer('tik');
             $table->timestamps();
-            $table->foreign('id_datauser')->references('id')->on('datausers')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('id_kriteria')->references('id')->on('kriterias')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

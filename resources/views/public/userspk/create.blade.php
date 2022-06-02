@@ -24,42 +24,79 @@
                     <div class="card-body card-block">
                         <form action="{{route('userspk.store')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                     @csrf
-                            <div class="row form-group">
-                                <div class="col-lg-10">
-                                        <label for="select" class=" form-control-label">NISN</label></div>
-                                            <div class="col-12 col-md-9">
-                                            <select name="id_datauser" id="select" class="form-control">
-                                            @foreach($datauser as $datauser)
-                                            <option value={{$datauser->id}}>
-                                                {{$datauser->nisn}}
-                                            </option>
-                                            @endforeach                                            
-                                            </select>
-                                         </div>
-                                    </div>
 
-                            <div class="row form-group">
-                                 <div class="col-lg-10">
-                                    <label for="select" class=" form-control-label">Nama Kriteria</label></div>
-                                        <div class="col-12 col-md-9">
-                                        <select name="id_kriteria" id="select" class="form-control">
-                                        @foreach($data_kriteria as $kriteria)
-                                        <option value={{$kriteria->id}}>
-                                            {{$kriteria->nama_kriteria}}
-                                        </option>
-                                        @endforeach                                            
-                                        </select>
-                                     </div>
-                                </div>
-                         
-                            <div class="row form-group">
-                                <div class="col-lg-9">
-                                    <div class="form-group">
-                                      <label for="text-input" class=" form-control-label">Input Nilai</label>
-                                      <input type="text" id="text-input" name="nilaisiswa" placeholder="Text" class="form-control">
-                                    </div>
-                                </div>
+                    <div class="row form-group">
+                        <div class="col-lg-9">
+                            <div class="form-group">
+                             <label for="text-input" class=" form-control-label">Nama Siswa</label>
+                                <input type="text" id="text-input" name="nama" placeholder="Text" class="form-control"><small class="form-text text-muted">Isi nama siswa</small>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-lg-9">
+                            <div class="form-group">
+                                <label for="text-input" class=" form-control-label">NISN</label>
+                                <input type="text" id="text-input" name="nisn" placeholder="Text" class="form-control"><small class="form-text text-muted">Isi NISN</small>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="row form-group">
+                        <div class="col-lg-9">
+                            <div class="form-group">
+                                <label for="text-input" class=" form-control-label">Nilai Matematika</label>
+                                <input type="text" id="text-input" name="matematika" placeholder="Text" class="form-control"><small class="form-text text-muted">Isi nilai matematika</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-lg-9">
+                            <div class="form-group">
+                                <label for="text-input" class=" form-control-label">Nilai IPA</label>
+                                <input type="text" id="text-input" name="ipa" placeholder="Text" class="form-control"><small class="form-text text-muted">Isi nilai IPA</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-lg-9">
+                            <div class="form-group">
+                                <label for="text-input" class=" form-control-label">Nilai IPS</label>
+                                <input type="text" id="text-input" name="ips" placeholder="Text" class="form-control"><small class="form-text text-muted">Isi nilai IPS</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-lg-9">
+                            <div class="form-group">
+                                <label for="text-input" class=" form-control-label">Nilai B.Inggris</label>
+                                <input type="text" id="text-input" name="bing" placeholder="Text" class="form-control"><small class="form-text text-muted">Isi nilai B.Inggris</small>
+                            </div>
+                        </div>
+                    </div>
+                                
+                    <div class="row form-group">
+                        <div class="col-lg-9">
+                            <div class="form-group">
+                                <label for="text-input" class=" form-control-label">Nilai B.Indonesia</label>
+                                <input type="text" id="text-input" name="bindo" placeholder="Text" class="form-control"><small class="form-text text-muted">Isi nilai B.Indo</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-lg-9">
+                            <div class="form-group">
+                                <label for="text-input" class=" form-control-label">Nilai TIK</label>
+                                <input type="text" id="text-input" name="tik" placeholder="Text" class="form-control"><small class="form-text text-muted">Isi nilai TIK</small>
+                            </div>
+                        </div>
+                    </div>
+                               
                                <br>
                                     <!-- Button -->
                                     <div class="pl-lg-4">
@@ -69,6 +106,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
                                 </form>
                             </div>
                         </div>
@@ -76,5 +115,6 @@
                 </div>
             </div>
         </div>
-      </div>
+    </div>
+</div>
 @endsection

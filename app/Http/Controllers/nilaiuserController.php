@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\datauser;
-use App\Kriteria;
 use App\NilaiUser;
 use Illuminate\Http\Request;
 
@@ -29,10 +27,8 @@ class nilaiuserController extends Controller
      */
     public function create()
     {
-        $datauser=datauser::all();
-        $data_kriteria=Kriteria::all();
         $pagename='Input Nilai';
-        return view('public.userspk.create',compact('pagename','datauser','data_kriteria'));
+        return view('public.userspk.create',compact('pagename'));
     }
 
     /**
@@ -45,15 +41,25 @@ class nilaiuserController extends Controller
     {
         //
         $request->validate([
-            'nilaisiswa'=>'required',
-            'id_datauser'=>'required',
-            'id_kriteria'=>'required'
+            'nama'=>'required',
+            'nisn'=>'required',
+            'matematika'=>'required',
+            'ipa'=>'required',
+            'ips'=>'required',
+            'bing'=>'required',
+            'bindo'=>'required',
+            'tik'=>'required'
         ]);
 
         $nilaisiswa=new NilaiUser([
-            'nilaisiswa'=> $request->get('nilaisiswa'),
-            'id_datauser'=> $request->get('id_datauser'),
-            'id_kriteria'=> $request->get('id_kriteria')
+            'nama'=> $request->get('nama'),
+            'nisn'=> $request->get('nisn'),
+            'matematika'=> $request->get('matematika'),
+            'ipa'=>$request->get('ipa'),
+            'ips'=> $request->get('ips'),
+            'bing'=> $request->get('bing'),
+            'bindo'=> $request->get('bindo'),
+            'tik'=> $request->get('tik'),
         ]);
 
         // dd($datakrijur);

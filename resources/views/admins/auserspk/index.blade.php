@@ -28,8 +28,13 @@
                             <th>No.</th>
                             <th>NISN</th>
                             <th>Nama</th>
-                            <th>Kriteria Pilihan</th>
-                            <th>Nilai Kriteria</th>
+                            <th>Nilai MTK</th>
+                            <th>Nilai IPA</th>
+                            <th>Nilai IPS</th>
+                            <th>Nilai B.Inggris</th>
+                            <th>Nilai B.Indonesia</th>
+                            <th>Nilai TIK</th>
+
 
                         </tr>
                     </thead>
@@ -37,10 +42,14 @@
                     @foreach($data as $i=>$row)
                     <tr>
                             <td>{{++$i}}</td>
-                            <td>{{$row->nisn->nisn}}</td>
-                            <td>{{$row->nama->nama}}</td>
-                            <td>{{$row->nama_kriteria->nama_kriteria}}</td>
-                            <td>{{$row->nilaisiswa}}</td>
+                            <td>{{$row->nama}}</td>
+                            <td>{{$row->nisn}}</td>
+                            <td>{{$row->matematika}}</td>
+                            <td>{{$row->ipa}}</td>
+                            <td>{{$row->ips}}</td>
+                            <td>{{$row->bing}}</td>
+                            <td>{{$row->bing}}</td>
+                            <td>{{$row->tik}}</td>
                         </tr>
                     @endforeach
                     </tbody>
