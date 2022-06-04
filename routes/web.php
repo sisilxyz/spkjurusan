@@ -30,6 +30,7 @@ Route::post('/datauser/importdatauser', 'Admin\datauserController@import')->name
 
 Route::resource('/jurusan', 'Admin\jurusanController');
 Route::resource('/kriteria', 'Admin\kriteriaController');
+Route::resource('/jawaban', 'Admin\jawabanController');
 Route::resource('/pertanyaan', 'Admin\pertanyaanController');
 Route::resource('/bobot', 'Admin\bobotController');
 Route::resource('/kriteria_jurusan', 'Admin\kriteria_jurusanController');

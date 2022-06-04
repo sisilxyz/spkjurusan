@@ -80,7 +80,7 @@
                     <h6 class="collapse-header">Sub Kriteria:</h6>
                     <a class="collapse-item" href="{{ url('/kriteria') }}">Mata Pelajaran</a>
                     <a class="collapse-item" href="{{ url('/pertanyaan') }}">Pertanyaan</a>
-                    <a class="collapse-item" href="utilities-animation.html">Jawaban</a>
+                    <a class="collapse-item" href="{{ url('/jawaban') }}">Jawaban</a>
                     <a class="collapse-item" href="utilities-other.html">Nilai Mata Pelajaran</a>
                 </div>
             </div>
